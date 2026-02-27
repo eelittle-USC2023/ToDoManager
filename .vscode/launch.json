@@ -6,10 +6,24 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Main",
+            "name": "ConsoleUserClient",
             "request": "launch",
-            "mainClass": "Main",
-            "projectName": "ToDoManager_7aaa293"
+            "mainClass": "com.example.todomanager.ConsoleUserClient",
+            "projectName": "ToDoManager"
+        },
+        {
+            "type": "java",
+            "name": "TodomanagerApplication",
+            "request": "launch",
+            "mainClass": "com.example.todomanager.TodomanagerApplication",
+            "projectName": "ToDoManager"
+        },
+        {
+            "type": "java",
+            "name": "TodomanagerApplication",
+            "request": "launch",
+            "mainClass": "com.example.todomanager.TodomanagerApplication",
+            "projectName": "todomanager"
         },
         {
             "type": "java",

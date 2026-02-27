@@ -25,6 +25,8 @@ CREATE TABLE roles (
   organization_id CHAR(36),
   work_hours VARCHAR(100),
   hours_per_week DECIMAL(6,2),
+  supervisor_role_id VARCHAR(36),
+  work_days VARCHAR(15),
   FOREIGN KEY (organization_id) REFERENCES organizations(uuid) ON DELETE CASCADE
 );
 
@@ -35,16 +37,6 @@ CREATE TABLE role_users (
   PRIMARY KEY (role_id, user_id),
   FOREIGN KEY (role_id) REFERENCES roles(id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
--- Task schedules
-CREATE TABLE task_schedules (
-  uuid CHAR(36) PRIMARY KEY,
-  title VARCHAR(200),
-  start_time TIME,
-  end_time TIME,
-  dates JSON, -- array of dates like ["2026-02-03","2026-02-05"]
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Task folders
@@ -63,18 +55,13 @@ CREATE TABLE tasks (
   title VARCHAR(255) NOT NULL,
   description TEXT,
   start_datetime DATETIME,
-  due_offset_minutes INT DEFAULT 0, -- due date as offset in minutes from start
+  due_offset_hours INT DEFAULT 0, -- due date as offset in hours from start
   recurrence_frequency_hours INT DEFAULT 0,
   time_to_complete_minutes INT DEFAULT 0,
   folder_id CHAR(36),
   parent_task_id CHAR(36),
-  schedule_id CHAR(36),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (folder_id) REFERENCES task_folders(id) ON DELETE SET NULL,
-  FOREIGN KEY (parent_task_id) REFERENCES tasks(uuid) ON DELETE SET NULL,
-  FOREIGN KEY (schedule_id) REFERENCES task_schedules(uuid) ON DELETE SET NULL
+  FOREIGN KEY (parent_task_id) REFERENCES tasks(uuid) ON DELETE SET NULL
 );
-
--- Organization -> Roles mapping (optional duplicate if you prefer)
--- (roles already have organization_id, so separate join not strictly required)

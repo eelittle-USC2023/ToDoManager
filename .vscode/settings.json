@@ -1,5 +1,7 @@
 {
   "java.project.referencedLibraries": [
     "lib/mysql-connector-j-9.6.0.jar"
-  ]
+],
+"java.configuration.updateBuildConfiguration": "interactive",
+"java.compile.nullAnalysis.mode": "automatic"
 }
