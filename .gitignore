@@ -33,4 +33,5 @@ build/
 .vscode/
 
 ### application properties (to avoid revealing sensitive info) ###
-### toDoManagerBackEnd/src/main/resources/application.properties
+toDoManagerBackEnd/src/main/resources/application.properties
+
