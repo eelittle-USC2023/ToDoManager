@@ -1,35 +1,22 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "ConsoleUserClient",
-            "request": "launch",
-            "mainClass": "com.example.todomanager.ConsoleUserClient",
-            "projectName": "ToDoManager"
-        },
-        {
-            "type": "java",
-            "name": "TodomanagerApplication",
-            "request": "launch",
-            "mainClass": "com.example.todomanager.TodomanagerApplication",
-            "projectName": "ToDoManager"
-        },
-        {
-            "type": "java",
-            "name": "TodomanagerApplication",
-            "request": "launch",
-            "mainClass": "com.example.todomanager.TodomanagerApplication",
-            "projectName": "todomanager"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+        "type": "java",
+        "name": "TodomanagerApplication",
+        "request": "launch",
+        "mainClass": "com.example.todomanager.TodomanagerApplication",
+        "projectName": "ToDoManager"
+    },
+    {
+        "type": "java",
+        "name": "Debug ToDoManager (VS Code)",
+        "request": "launch",
+        "mainClass": "com.example.todomanager.TodomanagerApplication",
+        "projectName": "ToDoManagerBackEnd",
+        "cwd": "${workspaceFolder}/toDoManagerBackEnd",
+        "console": "integratedTerminal",
+        "args": ""
+    }
+]
 }
